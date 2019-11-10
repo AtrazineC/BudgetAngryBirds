@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6268665042405818610}
   - component: {fileID: 6268665042405818611}
   - component: {fileID: 6268665042405818620}
-  - component: {fileID: 6268665042405818608}
   - component: {fileID: 6268665042405818615}
   - component: {fileID: 6268665042405818614}
   m_Layer: 0
@@ -121,26 +120,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!231 &6268665042405818608
-SpringJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6268665042405818621}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.000000023720219, y: 0}
-  m_AutoConfigureDistance: 1
-  m_Distance: 0.7571657
-  m_DampingRatio: 0
-  m_Frequency: 2
 --- !u!114 &6268665042405818615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,11 +132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665696a0cb0947d44afa027da2170174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIManager: {fileID: 0}
   rb: {fileID: 6268665042405818620}
   hook: {fileID: 0}
+  nextBall: {fileID: 0}
   releaseTime: 0.15
   maxDragDistance: 2
-  nextBall: {fileID: 0}
 --- !u!96 &6268665042405818614
 TrailRenderer:
   serializedVersion: 2
