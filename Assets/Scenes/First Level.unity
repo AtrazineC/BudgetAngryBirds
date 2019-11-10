@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -560,6 +560,11 @@ PrefabInstance:
       propertyPath: hook
       value: 
       objectReference: {fileID: 972598787}
+    - target: {fileID: 6268665042405818615, guid: ef7dd62371d6c764a8267dcedc9140bd,
+        type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 1643001706}
     - target: {fileID: 6268665042405818620, guid: ef7dd62371d6c764a8267dcedc9140bd,
         type: 3}
       propertyPath: m_BodyType
@@ -692,7 +697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &708799699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1757,10 +1762,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   completeScreen: {fileID: 947901909}
-  scoreTextWin: {fileID: 0}
+  scoreTextWin: {fileID: 733032639}
   ballText: {fileID: 884152239}
   loseScreen: {fileID: 708799698}
-  scoreTextLose: {fileID: 0}
   restartTimerLose: {fileID: 1741408459}
 --- !u!4 &1643001707
 Transform:
@@ -1940,6 +1944,11 @@ PrefabInstance:
       propertyPath: nextBall
       value: 
       objectReference: {fileID: 616051230}
+    - target: {fileID: 6268665042405818615, guid: ef7dd62371d6c764a8267dcedc9140bd,
+        type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 1643001706}
     - target: {fileID: 6268665042405818620, guid: ef7dd62371d6c764a8267dcedc9140bd,
         type: 3}
       propertyPath: m_BodyType
@@ -2362,6 +2371,11 @@ PrefabInstance:
       propertyPath: nextBall
       value: 
       objectReference: {fileID: 1848350858}
+    - target: {fileID: 6268665042405818615, guid: ef7dd62371d6c764a8267dcedc9140bd,
+        type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 1643001706}
     - target: {fileID: 6268665042405818620, guid: ef7dd62371d6c764a8267dcedc9140bd,
         type: 3}
       propertyPath: m_BodyType

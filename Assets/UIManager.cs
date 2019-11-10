@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
 
     public GameObject loseScreen;
 
-    public Text scoreTextLose;
     public Text restartTimerLose;
 
     public void levelComplete() {
@@ -43,7 +42,7 @@ public class UIManager : MonoBehaviour
     IEnumerator FinishWin () {
         yield return new WaitForSeconds(1.3f);
         scoreTextWin.text = (score).ToString("");
-        ballText.text = (BallsUsed).ToString("");
+        ballText.text = (3-BallsUsed).ToString("");
         completeScreen.SetActive(true);
 
         yield return new WaitForSeconds(3f);
@@ -52,7 +51,6 @@ public class UIManager : MonoBehaviour
     }
 
     IEnumerator FinishLose () {
-        scoreTextLose.text = (score).ToString("");
         loseScreen.SetActive(true);
 
         for (int i = 4; i > 0; i--) {
