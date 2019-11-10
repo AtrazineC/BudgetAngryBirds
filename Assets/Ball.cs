@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
@@ -22,6 +23,11 @@ public class Ball : MonoBehaviour
 
   private float angle = (float)(Math.PI);
   private bool direction = true;
+
+  [Header("Unity stuff")]
+  public Image healthbar;
+  public Canvas healthCanvas;
+
   private Vector3 launch_direction {
     get
     {
@@ -65,6 +71,7 @@ public class Ball : MonoBehaviour
 
   void Update()
   {
+    healthbar.fillAmount = currentDragDistance / maxDragDistance;
     if (Input.GetKey("space"))
     {
       if (aiming)
@@ -127,6 +134,7 @@ public class Ball : MonoBehaviour
 
     IEnumerator Release()
     {
+      healthCanvas.enabled = false;
       // For launching the ball, and moving control to the next ball. 
       UIManager.BallsUsed++;
       yield return new WaitForSeconds(releaseTime);
