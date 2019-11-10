@@ -18,6 +18,7 @@ public class Ball : MonoBehaviour
   private float minDragDistance = 0.4f;
 
   private bool aiming = true;
+  private bool hasShot = false;
 
   private float angle = (float)(Math.PI);
   private bool direction = true;
@@ -58,35 +59,9 @@ public class Ball : MonoBehaviour
     rb.isKinematic = true;
     lineRenderer = gameObject.AddComponent<LineRenderer>();
     lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-    lineRenderer.widthMultiplier = 0.1f;
+    lineRenderer.widthMultiplier = 0.07f;
     lineRenderer.positionCount = traj_nsteps;
   }
-
-  /*private bool isPressed = false;
-  void Update()
-  {
-    if (isPressed)
-    {
-      Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-      if (Vector3.Distance(mousePos, hook.position) > maxDragDistance)
-        rb.position = hook.position + (mousePos - hook.position).normalized * maxDragDistance;
-      else
-        rb.position = mousePos;
-    }
-  }
-
-  void OnMouseDown ()
-  {
-    isPressed = true;
-    rb.isKinematic = true;
-  }
-  void OnMouseUp ()
-  {
-    isPressed = false;
-    rb.isKinematic = false;
-    //release function
-    StartCoroutine(Release());
-  } */
 
   void Update()
   {
@@ -97,7 +72,7 @@ public class Ball : MonoBehaviour
         // Setting the trajectory of the ball
         direction = (angle >= 9 * Math.PI / 7) ? false : direction;
         direction = (angle <= 5 * Math.PI / 7) ? true : direction;
-        angle = direction ? angle + 0.016f : angle - 0.016f;
+        angle = direction ? angle + 0.01f : angle - 0.01f;
 
         Vector3 originPosition = new Vector3((float)originX, (float)originY, 0);
         Vector3 offset = new Vector3((float)(Math.Cos(angle)), (float)(Math.Sin(angle)), 0);
@@ -106,12 +81,12 @@ public class Ball : MonoBehaviour
         transform.position = desiredPosition;
 
       }
-      else
+      else 
       {
         // Setting the power of the ball
         direction = (currentDragDistance >= maxDragDistance) ? false : direction;
         direction = (currentDragDistance <= minDragDistance) ? true : direction;
-        currentDragDistance = direction ? currentDragDistance + 0.035f : currentDragDistance - 0.035f;
+        currentDragDistance = direction ? currentDragDistance + 0.025f : currentDragDistance - 0.025f;
 
         Vector3 originPosition = new Vector3((float)originX, (float)originY, 0);
         Vector3 desiredPosition = originPosition + (currentDragDistance * launch_direction);
@@ -126,8 +101,9 @@ public class Ball : MonoBehaviour
       {
         aiming = false;
       }
-      else
+      else if (hasShot == false) 
       {
+        hasShot = true;
         rb.isKinematic = false;
         rb.velocity = calculate_velocity();
         StartCoroutine(Release());

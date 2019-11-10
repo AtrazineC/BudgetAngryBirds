@@ -20,6 +20,16 @@ public class UIManager : MonoBehaviour
 
     public Text restartTimerLose;
 
+    public LevelManager LevelManager;
+
+    public GameObject LevelStartScreen;
+    public Text levelText;
+
+    void Start() {
+        levelText.text = SceneManager.GetActiveScene().name;
+        LevelStartScreen.SetActive(true);
+    }
+
     public void levelComplete() {
 
         StartCoroutine(FinishWin());
@@ -33,10 +43,21 @@ public class UIManager : MonoBehaviour
     }
 
     public void restartLevel() {
+
         score = 0;
         EnemiesAlive = 0;
         BallsUsed = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+    public void nextLevel() {
+        
+        score = 0;
+        EnemiesAlive = 0;
+        BallsUsed = 0;
+        LevelManager.nextLevel();
+
     }
 
     IEnumerator FinishWin () {
@@ -47,7 +68,7 @@ public class UIManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        restartLevel();
+        nextLevel();
     }
 
     IEnumerator FinishLose () {
