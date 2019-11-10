@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
     IEnumerator FinishWin () {
         yield return new WaitForSeconds(1.3f);
         scoreTextWin.text = (score).ToString("");
-        ballText.text = (3-BallsUsed).ToString("");
+        ballText.text = (3 - BallsUsed).ToString("");
         completeScreen.SetActive(true);
 
         yield return new WaitForSeconds(3f);
