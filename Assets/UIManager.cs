@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class UIManager : MonoBehaviour
 {
@@ -28,16 +29,16 @@ public class UIManager : MonoBehaviour
     void Start() {
         levelText.text = SceneManager.GetActiveScene().name;
         LevelStartScreen.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("Main");
     }
 
     public void levelComplete() {
-
         StartCoroutine(FinishWin());
+
 
     }
 
     public void levelFail() {
-
         StartCoroutine(FinishLose());
 
     }
@@ -52,7 +53,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void nextLevel() {
-        
+
         score = 0;
         EnemiesAlive = 0;
         BallsUsed = 0;
@@ -62,11 +63,13 @@ public class UIManager : MonoBehaviour
 
     IEnumerator FinishWin () {
         yield return new WaitForSeconds(1.3f);
+        FindObjectOfType<AudioManager>().StopPlaying("Main");
+        FindObjectOfType<AudioManager>().Play("Win");
         scoreTextWin.text = (score).ToString("");
         ballText.text = (3 - BallsUsed).ToString("");
         completeScreen.SetActive(true);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
 
         nextLevel();
     }

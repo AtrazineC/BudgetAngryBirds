@@ -24,6 +24,7 @@ public class enemy : MonoBehaviour
   {
     if (colInfo.relativeVelocity.magnitude > health) {
       Die();
+      FindObjectOfType<AudioManager>().Play("EnemyDeath");
     }
 
   }
@@ -44,7 +45,7 @@ public class enemy : MonoBehaviour
 
       UIManager.score = UIManager.score + pointValue;
       scoreText.text = "Score: " + (UIManager.score).ToString("");
-      
+
     }
 
   }
