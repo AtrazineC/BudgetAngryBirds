@@ -94,6 +94,8 @@ public class Ball : MonoBehaviour
     lineRenderer.positionCount = traj_nsteps;
     originX = hook.position.x;
     originY = hook.position.y;
+
+    rb.position = ((Vector3)hook.position + (currentDragDistance * launch_direction));
   }
 
   void Update()
