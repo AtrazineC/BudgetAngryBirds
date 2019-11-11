@@ -13,7 +13,7 @@ public class Menu_Manager : MonoBehaviour
     public Button LevelSelectionButton;
 
     public Button[] LevelButtons = new Button[8];
-    
+
     private bool SelectingLevel = false;
 
     // Start is called before the first frame update
@@ -65,7 +65,7 @@ public class Menu_Manager : MonoBehaviour
     private float tick = 0f;
     private int currentLevel = 0;
     private bool transitioned = false;
-    
+
     void Update() {
 
         if (SelectingLevel == false) {
@@ -96,17 +96,17 @@ public class Menu_Manager : MonoBehaviour
                     for (int i = 0; i < 8; i++) {
                         var colors = LevelButtons[i].GetComponent<Button>().colors;
                         colors.normalColor = Color.white;
-                        
+
                         if (i == currentLevel) {
-                            colors.normalColor = Color.red;
+                            colors.normalColor = new Color(255f/255f, 126f/255f, 126f/255f);
                         }
 
                         LevelButtons[i].GetComponent<Button>().colors = colors;
                     }
                 } else {
-                    StartGame(currentLevel + 1); 
+                    StartGame(currentLevel + 1);
                 }
-            }            
+            }
         }
 
     }
