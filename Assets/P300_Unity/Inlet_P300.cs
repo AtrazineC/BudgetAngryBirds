@@ -78,9 +78,10 @@ public class Inlet_P300 : AStringInlet
           // If the ball has been fired, it needs to know the next ball
           nextball = ball.nextBall;
         }
-        ball.move(cubeIndex);
+        ball.move(cubeIndex); // This is the action: 0: up; 1: down; 2: left; 3: right; 4: shoot (needs to set next ball)
         if (cubeIndex == 4)
         {
+          // Setting the reference to the next ball
           ball = nextball.GetComponent<Ball>();
         }
       }

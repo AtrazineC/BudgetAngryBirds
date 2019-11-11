@@ -76,9 +76,9 @@ public class Ball : MonoBehaviour
           { currentDragDistance = (currentDragDistance >= minDragDistance) ? currentDragDistance - 0.15f : currentDragDistance; break; }
         // left
         case 2:
-          { angle = (angle <= 8.5 * Math.PI / 6) ? 0.1f + angle : angle; print(angle / Math.PI); break; }
+          { angle = (angle <= 8.5 * Math.PI / 6) ? 0.1f + angle : angle; break; }
         // right
-        case 3: { angle = (angle >= 4 * Math.PI / 6) ? -0.1f + angle : angle; print(angle / Math.PI); break; }
+        case 3: { angle = (angle >= 4 * Math.PI / 6) ? -0.1f + angle : angle; break; }
         // shoot (space)
         case 4:
           {
