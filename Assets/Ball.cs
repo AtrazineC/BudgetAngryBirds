@@ -68,10 +68,18 @@ public class Ball : MonoBehaviour
     {
       switch (action)
       {
-        case 0: { currentDragDistance = (currentDragDistance <= maxDragDistance) ? currentDragDistance + 0.15f : currentDragDistance; break; }
-        case 1: { currentDragDistance = (currentDragDistance >= minDragDistance) ? currentDragDistance - 0.15f : currentDragDistance; break; }
-        case 2: { angle = (angle >= 5 * Math.PI / 7) ? 0.1f + angle : angle; break; }
-        case 3: { angle = (angle <= 9 * Math.PI / 7) ? -0.1f + angle : angle; break; }
+        // up
+        case 0:
+          { currentDragDistance = (currentDragDistance <= maxDragDistance) ? currentDragDistance + 0.15f : currentDragDistance; break; }
+        // down
+        case 1:
+          { currentDragDistance = (currentDragDistance >= minDragDistance) ? currentDragDistance - 0.15f : currentDragDistance; break; }
+        // left
+        case 2:
+          { angle = (angle <= 8.5 * Math.PI / 6) ? 0.1f + angle : angle; print(angle / Math.PI); break; }
+        // right
+        case 3: { angle = (angle >= 4 * Math.PI / 6) ? -0.1f + angle : angle; print(angle / Math.PI); break; }
+        // shoot (space)
         case 4:
           {
             hasShot = true;
@@ -109,8 +117,8 @@ public class Ball : MonoBehaviour
         if (aiming)
         {
           // Setting the trajectory of the ball
-          direction = (angle <= 5 * Math.PI / 7) ? true : direction;
-          direction = (angle >= 9 * Math.PI / 7) ? false : direction;
+          direction = (angle <= 4 * Math.PI / 6) ? true : direction;
+          direction = (angle >= 8.5 * Math.PI / 6) ? false : direction;
           angle = direction ? angle + 0.01f : angle - 0.01f;
 
           transform.position = (Vector3)hook.position + (currentDragDistance * launch_direction);
