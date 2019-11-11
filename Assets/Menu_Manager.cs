@@ -19,6 +19,7 @@ public class Menu_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      FindObjectOfType<AudioManager>().Play("SelectScreen");
         // play music???
 
         //Button start = StartGameButton.GetComponent<Button>();
@@ -40,6 +41,7 @@ public class Menu_Manager : MonoBehaviour
         MenuScreen.SetActive(false);
         LevelSelectScreen.SetActive(false);
         SceneManager.LoadScene(i);
+        FindObjectOfType<AudioManager>().StopPlaying("SelectScreen");
 
     }
 

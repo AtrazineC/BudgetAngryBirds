@@ -236,7 +236,7 @@ MonoBehaviour:
   rb: {fileID: 6268665042405818620}
   hook: {fileID: 0}
   nextBall: {fileID: 0}
-  useOneKey: 0
+  useOneKey: 1
   releaseTime: 0.15
   healthbar: {fileID: 2388268544427253232}
   healthCanvas: {fileID: 2641314002247465937}
